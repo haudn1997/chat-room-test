@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f8fa;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 400px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chat-header button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.chat-header button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  border-bottom-left-radius: 4px;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #4a90e2;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.sent .message-header .sender,
+.message.sent .message-header .timestamp {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.sender {
+  font-weight: 600;
+  color: #555;
+}
+
+.timestamp {
+  color: #888;
+  margin-left: 10px;
+}
+
+.message-content {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.status {
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.status.pending {
+  color: #ffc107;
+}
+
+.status.error {
+  color: #dc3545;
+}
+
+.message.pending {
+  opacity: 0.8;
+}
+
+.message-input {
+  display: flex;
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #eaeaea;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.message-input input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.message-input button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 0 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.message-input button:hover {
+  background-color: #3a7bc8;
+}
+
+.chat-connecting,
+.chat-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f8fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.chat-connecting h2,
+.chat-error h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.chat-connecting p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.chat-error p {
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+.chat-error button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.chat-error button:hover {
+  background-color: #3a7bc8;
+}
+
+@media (max-width: 768px) {
+  .message {
+    max-width: 85%;
+  }
+
+  .chat-header h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-header {
+    padding: 12px 15px;
+  }
+
+  .messages-container {
+    padding: 15px;
+  }
+
+  .message {
+    padding: 10px 12px;
+  }
+
+  .message-input {
+    padding: 10px;
+  }
+
+  .message-input input {
+    padding: 10px 12px;
+  }
+}
